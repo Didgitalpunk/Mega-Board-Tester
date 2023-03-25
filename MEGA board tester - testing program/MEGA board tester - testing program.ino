@@ -1,11 +1,4 @@
-class fuckMeICouldHaveBeenOverloadingOperators {
-    int _foo;
-    
-public:
-    void show() { printf("%i\n", _foo); }
-    void operator++() { this->_foo++; }
-    fuckMeICouldHaveBeenOverloadingOperators(int foob){_foo = foob;}
-};
+//Version 1.1 ---- 3/25/2023
 
 
 int LEDmega[] = {
