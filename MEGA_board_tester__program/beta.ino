@@ -42,16 +42,16 @@ struct Pin {
 	// bool state = false // you could add a boolean to track whether or not a Pin is currently powered or not. Obviously this is worthless if you're rapidly iterating,
 	// but it could be useful if you have a separate Pin object to track a specific pin. 
 	void On() {
-		//TODO: add the correct text here to activate the output on the pin we are targeting, ie somethingSomethingDigitalWrite(num, HIGH) or some such
+	//TODO: add the correct text here to activate the output on the pin we are targeting, ie somethingSomethingDigitalWrite(num, HIGH) or some such
 
 	}
 	void Off() {
-		//TODO: the same thing as above, only for turning it off 
+	//TODO: the same thing as above, only for turning it off 
 
 	}
 	int operator ++() {    // pre increment // NOTE: ALL the arithmetic operators are boundary checked, meaning they loop by themselves. Using them in a loop will, predictably,
-		if (num + 1 <= MAX) { num++; }		    // make your loop infinite. You only need these if you are doing raw math that is not being checked by anything else. 
-		else { num = MIN; }					          // If you are in a situation where you have other forms of boundary checking, simply write to this->num 
+		if (num + 1 <= MAX) { num++; }	// make your loop infinite. You only need these if you are doing raw math that is not being checked by anything else. 
+		else { num = MIN; }		// If you are in a situation where you have other forms of boundary checking, simply write to this->num 
 		return num; 
 	}
 	int operator ++(int) { // post increment
@@ -99,8 +99,8 @@ void explain() { // reading material, will get optimized out because it's not ca
 	Example = 1; // assignment would make this Pin target pins[1]
 	Example++; // inrement to pins[2]
 	Example--; // back to 1;
-	Example = Example + Example; // combining operators, sets the LED to 2. Note that if you did these multiple times, you'd get odd results, for example LED = LED + LED + LED is actually 5 because
-	// of how the order of operations works
+	Example = Example + Example; // combining operators, sets the LED to 2. Note that if you did these multiple times, you'd get odd results, 
+				     // for example LED = LED + LED + LED is actually 5 because of how the order of operations works
 
 	if (Example == 2) {} // evaluates to true because the LED is converted to int here, essentially this says if( (int)Example == 2 ) 
 	// this also enables you to do the following things:
@@ -109,8 +109,9 @@ void explain() { // reading material, will get optimized out because it's not ca
 	x = 69 - Example;
 	Example = 2375; // sets the LED to 0 because 2375 is out of bounds of the array
 	Pin Example2(12);
-	Example = Example2; // would make this LEDs num identical to LED2s num
-	if (Example == Example2) {} // this is true now, since their nums are equal. if you added more class members, like the state bool, you'd need to manually implement the operator
+	Example = Example2; // makes this LEDs num identical to LED2s num
+	if (Example == Example2) {} // this is true now, since their nums are equal. if you added more class members, like the state bool, 
+				    //you'd need to manually implement the operator
 
 
 
@@ -122,7 +123,8 @@ void setup(){  }
 void loop() {
 	Pin LED;
 	for (LED = MIN; LED <= MAX; LED.num++) { // you can (in fact, you have to) use the unsafe incrementation in a for loop, because otherwise you end up
-										                       // with an infinite loop. This is perfectly safe here because the for loop does boundary checking by its very nature.
+						 // with an infinite loop. This is perfectly safe here because the for loop does boundary checking 
+						 // by its very nature.
 		
 		printf("%i\n", pins[LED.num]);	  // comment this and uncomment the rest to test it on the board.  
 		// pinMode(pins[LED], OUTPUT);
@@ -133,6 +135,6 @@ void loop() {
 	// Ironically, this turned out to be a superfluous implementation. The increment() function did this perfectly well. 
 	// You probably shouldn't use any of this for the actual board tester, but it might become useful later if we add more functionality.
 	// For now, this was just a fun exercise I did that might teach you some stuff about C++. I'd still be curious to know if this actually works on the board
-  // or if I made any more glaring errors. If you end up trying it, let me know how it goes. Love, Diana 
+  	// or if I made any more glaring errors. If you end up trying it, let me know how it goes. Love, Diana 
 
 }
