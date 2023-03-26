@@ -25,8 +25,6 @@ const int pins[MAX+1] = {
 63, 62, 61, 60, 59, 58, 57, 56, 55, 54};
 #endif
 
-const int* pin = &pins[0];
-
 int increment(int val, int inc) {
     if (val + inc <= MAX) { return val + inc; }
     else { return MIN + ((val + inc) % MAX-1); }
@@ -35,17 +33,6 @@ int decrement(int val, int dec) {
     if (val - dec >= MIN) { return val - dec; }
     else {return MAX - (val-dec+1)*-1;}
 }
-void pointerincrement(int inc) {
-    int val = (pin - pins);
-    if (val + inc <= MAX) { pin = &pins[val + inc]; }
-    else { pin = &pins[MIN + ((val + inc) % MAX - 1)]; }
-}
-void pointerdecrement(int dec) {
-    int val = (pin - pins);
-    if (val - dec >= MIN) { pin = &pins[val - dec]; }
-    else { pin = &pins[MAX - (val - dec + 1) * -1]; }
-}
-
 
 void setup() {}
 
