@@ -1,17 +1,17 @@
 //Version 1.2.1    3/27/2023
 //Credits to Freya Mutschler and Diana N. Corsten
 
-#define MIN 0
+constexpr auto MIN = 0;
 
 #if defined(__AVR_ATmega328P__)
-#define MAX 19
+constexpr auto MAX = 19;
 #define Shift 4
 #define Delay 100
 int pins[MAX+1] = {  7, 6, 5, 4, 3, 2, 1, 0, 19, 18, 17, 16, 15, 14, 13, 12 , 11, 10, 9, 8 };
 #endif
 
 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)
-#define MAX 69
+constexpr auto MAX = 69;
 #define Shift 6
 #define Delay 75
 const int pins[MAX+1] = {
