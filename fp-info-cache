@@ -1,4 +1,4 @@
-20633821459304645
+20637181518591868
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -6250,6 +6250,13 @@ capacitor tantalum
 0
 2
 2
+Components
+R_Array_convex_EXB-S8Vxxxx
+Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+resistor
+0
+8
+8
 Connector
 Banana_Jack_1Pin
 Single banana socket, footprint - 6mm drill
@@ -58210,6 +58217,13 @@ Yellow 5381 Series LED VCCLite https://vcclite.com/wp-content/uploads/wpallimpor
 Yellow 5381 Series LED
 0
 2
+2
+Logos
+ISTY LOGO FOR MEGA TEST BOARD 2
+
+
+0
+10
 2
 Module
 A20_OLINUXINO_LIME2
