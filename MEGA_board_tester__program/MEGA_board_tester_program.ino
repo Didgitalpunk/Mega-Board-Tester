@@ -11,9 +11,9 @@ int pins[MAX+1] = {  7, 6, 5, 4, 3, 2, 1, 0, 19, 18, 17, 16, 15, 14, 13, 12 , 11
 #endif
 
 #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)
-constexpr auto MAX = 69
-constexpr auto Shift = 6
-constexpr auto Delay = 75
+constexpr auto MAX = 69;
+constexpr auto Shift = 6;
+constexpr auto Delay = 75;
 const int pins[MAX+1] = {
 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2,
 1, 0, 14, 15, 16, 17, 18, 19,
