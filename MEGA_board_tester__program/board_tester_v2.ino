@@ -85,14 +85,14 @@ public:
 			_num = ((_num - sub - MIN) % (MAX - MIN + 1) + (MAX - MIN + 1)) % (MAX - MIN + 1) + MIN; // The % operator can not handle negatives like it does overflowing positives,
 		}                                                                                            // so this part looks a lot more complicated.       
 		return *this;                                                                                // The added complexity of `+/- MIN` is to ensure that MIN != 0 would still produce       
-	}                                                                                                // the desired results.
+	}                                                                                                    // the desired results.
                                                                                                   
 	Pin& operator++() { 
         _num = _num == MAX ? MIN : _num + 1;
         return *this;
 	}
 
-	Pin& operator++(int) { 
+	Pin operator++(int) { 
 		Pin temp(*this);
 		_num = _num == MAX ? MIN : _num + 1;
 		return temp;
@@ -103,7 +103,7 @@ public:
             return *this;
 	}
 
-    Pin& operator --(int) {
+    Pin operator --(int) {
             Pin temp(*this);
             _num = _num == MIN ? MAX : _num - 1;
             return temp;
