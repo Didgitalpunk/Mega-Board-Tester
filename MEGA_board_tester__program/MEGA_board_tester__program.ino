@@ -25,6 +25,19 @@ const int pins[MAX+1] = {
 63, 62, 61, 60, 59, 58, 57, 56, 55, 54};
 #endif
 
+#if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)
+//arduino Leonardo
+#endif
+
+
+#if defined(?)
+//arduino Zero
+constexpr auto MAX = 21;
+constexpr auto Shift = 4;
+constexpr auto Delay = 100;
+int pins[MAX+1] = { 21, 20, 13, 12 , 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 19, 18, 17, 16, 15, 14 };
+#endif
+
 int increment(int val, int inc) {
     if (val + inc <= MAX) { return val + inc; }
     else { return MIN + ((val + inc) % MAX-1); }
