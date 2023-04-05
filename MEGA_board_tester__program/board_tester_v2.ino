@@ -66,7 +66,7 @@ public:
     Pin& operator =(int set) {
 		if (set != this->_num) {
 			if (set <= MAX && set >= MIN) { _num = set; } 
-			else { _num = MIN; return this->operator+(set); } // incorrect assignment is handled by setting _num to MIN and then adding the incorrect assignment, thus producing a valid result
+			else { _num = MIN; return this->operator+=(set); } // incorrect assignment is handled by setting _num to MIN and then adding the incorrect assignment, thus producing a valid result
 		}
 		return *this;
 	}
