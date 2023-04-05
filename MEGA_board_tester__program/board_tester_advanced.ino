@@ -1,8 +1,13 @@
 // And now I see with eye serene, the very pulse of the machine
 
-// Arduino Board Tester Program Version 2.0 March 31 2023 
+// Arduino Board Tester Program Version 2.1 April 5 2023 
 // Design and Fabrication by Freya Mutschler
 // Code by Diana N. Corsten and Freya Mutschler
+
+// This is a far more advanced version of the same program, with added features that can be used if you wish to perform other tests.
+// In this version, the pin on the board is represented by an object of type Pin that is capable of performing all sorts of math.
+// If you simply wish to test if all the pins on your board are working, the regular program will serve you just as well. 
+
 
 constexpr auto MIN = 0;
 
