@@ -47,7 +47,7 @@ public:
     Pin() { _num = MIN; }
     Pin(unsigned num) {
 		if (num <= MAX && num >= MIN) { _num = num; } // Incorrect initialization via assignment is handled by setting _num to MIN and then adding the incorrect assignment
-		else { _num = MIN; this->operator+(num); }    
+		else { _num = MIN; this->operator+=(num); }    
 	}
     Pin(const Pin& otherpin) : _num(otherpin._num) {} 
     
@@ -71,22 +71,28 @@ public:
 		return *this;
 	}
 
-    Pin& operator +(int add) {
+    Pin& operator +=(int add) {
 		if (add != 0) {
-			if (add < 0) { return this->operator-(abs(add)); } // attempting to use a negative number will simply invoke the - operator
+			if (add < 0) { return this->operator-=(abs(add)); } // attempting to use a negative number will simply invoke the - operator
 			_num = (_num + add - MIN) % (MAX - MIN + 1) + MIN;
 		}
 		return *this;
 	}
 
-    Pin& operator -(int sub) {
+    Pin& operator -=(int sub) {
 		if (sub != 0) {
-			if (sub < 0) { return this->operator+(abs(sub)); } // attempting to use a negative number will simply invoke the + operator
+			if (sub < 0) { return this->operator+=(abs(sub)); } // attempting to use a negative number will simply invoke the += operator
 			_num = ((_num - sub - MIN) % (MAX - MIN + 1) + (MAX - MIN + 1)) % (MAX - MIN + 1) + MIN; // The % operator can not handle negatives like it does overflowing positives,
 		}                                                                                            // so this part looks a lot more complicated.       
 		return *this;                                                                                // The added complexity of `+/- MIN` is to ensure that MIN != 0 would still produce       
 	}                                                                                                    // the desired results.
-                                                                                                  
+    	int operator-(int sub) {
+        return ((_num - sub - MIN) % (MAX - MIN + 1) + (MAX - MIN + 1)) % (MAX - MIN + 1) + MIN;
+    }
+    	int operator+(int add) {
+        return (_num + add - MIN) % (MAX - MIN + 1) + MIN;
+    }
+	
 	Pin& operator++() { 
         _num = _num == MAX ? MIN : _num + 1;
         return *this;
