@@ -38,13 +38,8 @@ constexpr auto Delay = 100;
 int pins[MAX+1] = { 21, 20, 13, 12 , 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 19, 18, 17, 16, 15, 14 };
 #endif
 
-int increment(int val, int inc) {
-    if (val + inc <= MAX) { return val + inc; }
-    else { return MIN + ((val + inc) % MAX-1); }
-}
 int decrement(int val, int dec) {
-    if (val - dec >= MIN) { return val - dec; }
-    else {return MAX - (val-dec+1)*-1;}
+    return ((val - dec - MIN) % (MAX - MIN + 1) + (MAX - MIN + 1)) % (MAX - MIN + 1) + MIN;
 }
 
 void setup() {
