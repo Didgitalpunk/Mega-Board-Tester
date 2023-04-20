@@ -1,0 +1,4 @@
+- align pin numbering on the board to be the same as the arduino Mega.
+- make it so there is a legend at least every few LEDs for the big connector, it's a pain to use right now.
+- upload AVR dumps from flipper of boards that have the program in them.
+-- link to (future) Flipper ICSP/SPI/TxRx breakout board
